@@ -6,9 +6,6 @@ namespace RSA
 {
     public partial class MainForm : Form
     {
-        //RRSA rsa = new RRSA();
-        //RSA rr = new RSA.create();
-
         ExampleRSA rsa = new ExampleRSA();
 
         public MainForm()
@@ -16,14 +13,7 @@ namespace RSA
             InitializeComponent();
             radioButtonEncrypt.Checked = true;
             rsa.GenKey();
-            string lala = rsa.publicKey;
-            System.Diagnostics.Debug.WriteLine("public Key : " + lala);
-            //p = PrimeNumberGenerator.Generate(1000, 10000).ToString();
-            //q = PrimeNumberGenerator.Generate(1000, 10000).ToString();
         }
-
-        public string p;
-        public string q;
 
         private void buttonExit_Click(object sender, EventArgs e)
         {
@@ -57,14 +47,11 @@ namespace RSA
 
         private async void buttonEncrypt_Click(object sender, EventArgs e)
         {
-            //rsa.Initialize(p, q);
             textBoxOutput.Text = rsa.Encryption(textBoxInput.Text);
-            //textBoxOutput.Text = string.Join(" ", enryptedMessage);
         }
 
         private async void buttonDecrypt_Click(object sender, EventArgs e)
         {
-            //string[] enryptedMessage = textBoxInput.Text.Split(' ');
             textBoxOutput.Text = rsa.Decryption(textBoxInput.Text);
         }
 
